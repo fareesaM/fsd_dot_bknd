@@ -7,9 +7,9 @@ Dine On Time is a robust restaurant management and reservation system. It allows
 
 ## Project Links
 - **Code Repository**: [GitHub](https://github.com/fareesaM/fsd_dot_bknd)
-  ![Code Repository](https://github.com/fareesaM/fsd_dot_bknd/blob/master/render_dashboard.png)
 
 - **Live Deployment**: [Render](https://fsd-dot-bknd.onrender.com)
+  ![Code Repository](https://github.com/fareesaM/fsd_dot_bknd/blob/master/render_dashboard.png)
 
 - **MongoDB Collection**: [MongoDB Atlas](https://cloud.mongodb.com/v2/67790ef86809db15e593568b#/metrics/replicaSet/677f339547e2e8151f1eedb0/explorer/test/menus/find)
   ![MongoDB Screenshot](https://github.com/fareesaM/fsd_dot_bknd/blob/master/mongo_db1.png)
