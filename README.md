@@ -3,11 +3,19 @@
 ## Overview
 Dine On Time is a robust restaurant management and reservation system. It allows users to register, browse restaurants, make reservations, and explore menus. Restaurant owners can manage their restaurants and menu items seamlessly. This guide provides a complete overview of the project, ensuring beginners can set it up and explore its functionality.
 
+---
+
 ## Project Links
 - **Code Repository**: [GitHub](https://github.com/fareesaM/fsd_dot_bknd)
+  ![Code Repository](https://github.com/fareesaM/fsd_dot_bknd/blob/master/render_dashboard.png)
+
 - **Live Deployment**: [Render](https://fsd-dot-bknd.onrender.com)
+
 - **MongoDB Collection**: [MongoDB Atlas](https://cloud.mongodb.com/v2/67790ef86809db15e593568b#/metrics/replicaSet/677f339547e2e8151f1eedb0/explorer/test/menus/find)
+  ![MongoDB Screenshot](https://github.com/fareesaM/fsd_dot_bknd/blob/master/mongo_db1.png)
+
 - **AWS S3 Bucket**: [S3 Bucket](https://eu-north-1.console.aws.amazon.com/s3/buckets/dineontime-images?bucketType=general&region=eu-north-1&tab=objects#)
+  ![AWS S3 Bucket](https://github.com/fareesaM/fsd_dot_bknd/blob/master/amazon_bucket.png)
 
 ---
 
@@ -100,24 +108,42 @@ Dine On Time is a robust restaurant management and reservation system. It allows
   }
   ```
 
-#### c. Get User Profile
-- **Method**: GET
-- **Endpoint**: `/api/users/profile`
+### 3. Menu Management Endpoints
+#### a. Add Menu Item
+- **Method**: POST
+- **Endpoint**: `/api/restaurants/:restaurantId/menu`
 - **Headers**:
   ```
   Authorization: Bearer <your_jwt_token>
+  Content-Type: multipart/form-data
   ```
+- **Body** (form-data):
+  - name: Menu Item Name
+  - description: Menu Item Description
+  - price: 12.99
+  - image: Upload an image file
 - **Expected Response**:
   ```json
   {
-    "_id": "user_id",
-    "name": "John Doe",
-    "email": "john.doe@example.com",
-    "role": "customer"
+    "_id": "menu_id",
+    "restaurant": "restaurant_id",
+    "items": [
+      {
+        "_id": "menu_item_id",
+        "name": "Menu Item Name",
+        "description": "Menu Item Description",
+        "price": 12.99,
+        "imageUrl": "https://your-s3-bucket-url/menu-item.png"
+      }
+    ]
   }
   ```
 
+![Menu Item Screenshot](https://github.com/fareesaM/fsd_dot_bknd/blob/master/menu_item1.png)
+
+
 ### 2. Restaurant Management Endpoints
+
 #### a. Create Restaurant
 - **Method**: POST
 - **Endpoint**: `/api/restaurants`
@@ -150,6 +176,7 @@ Dine On Time is a robust restaurant management and reservation system. It allows
 #### b. Get All Restaurants
 - **Method**: GET
 - **Endpoint**: `/api/restaurants`
+- **Headers**: None
 - **Expected Response**:
   ```json
   [
@@ -169,6 +196,7 @@ Dine On Time is a robust restaurant management and reservation system. It allows
 #### c. Get Restaurant by ID
 - **Method**: GET
 - **Endpoint**: `/api/restaurants/:id`
+- **Headers**: None
 - **Expected Response**:
   ```json
   {
@@ -191,62 +219,10 @@ Dine On Time is a robust restaurant management and reservation system. It allows
   }
   ```
 
-### 3. Menu Management Endpoints
-#### a. Add Menu Item
-- **Method**: POST
-- **Endpoint**: `/api/restaurants/:restaurantId/menu`
-- **Headers**:
-  ```
-  Authorization: Bearer <your_jwt_token>
-  Content-Type: multipart/form-data
-  ```
-- **Body** (form-data):
-  - name: Menu Item Name
-  - description: Menu Item Description
-  - price: 12.99
-  - image: Upload an image file
-- **Expected Response**:
-  ```json
-  {
-    "_id": "menu_id",
-    "restaurant": "restaurant_id",
-    "items": [
-      {
-        "_id": "menu_item_id",
-        "name": "Menu Item Name",
-        "description": "Menu Item Description",
-        "price": 12.99,
-        "imageUrl": "https://your-s3-bucket-url/menu-item.png"
-      }
-    ]
-  }
-  ```
-
-#### b. Get Menu by Restaurant
-- **Method**: GET
-- **Endpoint**: `/api/menu/:restaurantId`
-- **Headers**:
-  ```
-  Authorization: Bearer <your_jwt_token>
-  ```
-- **Expected Response**:
-  ```json
-  {
-    "_id": "menu_id",
-    "restaurant": "restaurant_id",
-    "items": [
-      {
-        "_id": "menu_item_id",
-        "name": "Menu Item Name",
-        "description": "Menu Item Description",
-        "price": 12.99,
-        "imageUrl": "https://your-s3-bucket-url/menu-item.png"
-      }
-    ]
-  }
-  ```
+---
 
 ### 4. Reservation Management Endpoints
+
 #### a. Create Reservation
 - **Method**: POST
 - **Endpoint**: `/api/reservations`
@@ -281,12 +257,42 @@ Dine On Time is a robust restaurant management and reservation system. It allows
   }
   ```
 
+#### b. View Reservations
+- **Method**: GET
+- **Endpoint**: `/api/reservations`
+- **Headers**:
+  ```
+  Authorization: Bearer <your_jwt_token>
+  ```
+- **Expected Response**:
+  ```json
+  [
+    {
+      "_id": "reservation_id",
+      "restaurantId": "restaurant_id",
+      "userId": "user_id",
+      "menuIds": ["menu_item_id1", "menu_item_id2"],
+      "date": "2025-01-20",
+      "time": "19:00",
+      "numberOfGuests": 4,
+      "specialRequests": "Window seat",
+      "createdAt": "timestamp",
+      "updatedAt": "timestamp"
+    }
+  ]
+  ```
+
 ---
 
-## Contributing
-Feel free to fork the repository, create a feature branch, and submit a pull request with your enhancements.
+### Note for Execution:
+- While testing locally, use the `http://localhost:5000` link for API requests.
+- For production, use the Render-deployed link: `https://fsd-dot-bknd.onrender.com`.
 
-## License
-This project is licensed under the MIT License.
+---
 
-The Aws needs to be updates here its a backend file
+## Conclusion
+
+This project showcases a full-stack implementation of a restaurant management system. It integrates modern tools like MongoDB Atlas, AWS S3, and Node.js for a seamless experience. Beginners can follow the setup instructions, while recruiters can assess its features and functionality for potential opportunities.
+
+
+
