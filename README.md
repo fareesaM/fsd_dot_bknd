@@ -145,6 +145,7 @@ Dine On Time is a robust restaurant management and reservation system. It allows
 ### 2. Restaurant Management Endpoints
 
 #### a. Create Restaurant
+
 - **Method**: POST
 - **Endpoint**: `/api/restaurants`
 - **Headers**:
@@ -156,7 +157,7 @@ Dine On Time is a robust restaurant management and reservation system. It allows
   - name: Restaurant Name
   - address: 123 Main St
   - phoneNumber: +123456789
-  - email: example@restaurant.com
+  - email: [example@restaurant.com](mailto\:example@restaurant.com)
   - description: A sample restaurant
   - image: Upload an image file
 - **Expected Response**:
@@ -174,6 +175,7 @@ Dine On Time is a robust restaurant management and reservation system. It allows
   ```
 
 #### b. Get All Restaurants
+
 - **Method**: GET
 - **Endpoint**: `/api/restaurants`
 - **Headers**: None
@@ -194,6 +196,7 @@ Dine On Time is a robust restaurant management and reservation system. It allows
   ```
 
 #### c. Get Restaurant by ID
+
 - **Method**: GET
 - **Endpoint**: `/api/restaurants/:id`
 - **Headers**: None
@@ -224,6 +227,7 @@ Dine On Time is a robust restaurant management and reservation system. It allows
 ### 4. Reservation Management Endpoints
 
 #### a. Create Reservation
+
 - **Method**: POST
 - **Endpoint**: `/api/reservations`
 - **Headers**:
@@ -258,6 +262,7 @@ Dine On Time is a robust restaurant management and reservation system. It allows
   ```
 
 #### b. View Reservations
+
 - **Method**: GET
 - **Endpoint**: `/api/reservations`
 - **Headers**:
@@ -285,12 +290,18 @@ Dine On Time is a robust restaurant management and reservation system. It allows
 ---
 
 ### Note for Execution:
+
 - While testing locally, use the `http://localhost:5000` link for API requests.
 - For production, use the Render-deployed link: `https://fsd-dot-bknd.onrender.com`.
 
 ---
 
 ## Conclusion
+
+Dine on Time is a robust backend project designed to simplify restaurant operations and enhance user experience. It employs a cutting-edge stack including MongoDB Atlas, AWS S3 for efficient storage, and Node.js with Express for a scalable and seamless backend. Key functionalities include user authentication, restaurant creation, reservation management, and pre-order capabilities. The live deployment on Render and the inclusion of detailed API routes make it both accessible to beginners and easy to work with for experienced developers.
+
+
+
 
 This project showcases a full-stack implementation of a restaurant management system. It integrates modern tools like MongoDB Atlas, AWS S3, and Node.js for a seamless experience. Beginners can follow the setup instructions, while recruiters can assess its features and functionality for potential opportunities.
 
