@@ -14,10 +14,12 @@ connectDB();
 const app = express();
 
 // Enable CORS for your frontend
-app.use(cors({
-  origin: 'https://fareesam.github.io/Dine_On_Time/', // Allow requests from your frontend
-  methods: 'GET,POST,PUT,DELETE', // Specify allowed methods
-}));
+// app.use(cors({
+//   origin: 'https://fareesam.github.io/Dine_On_Time/', // Allow requests from your frontend
+//   methods: 'GET,POST,PUT,DELETE', // Specify allowed methods
+// }));
+
+app.use(cors());
 
 app.use(express.json());
 
