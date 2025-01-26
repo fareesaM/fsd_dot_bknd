@@ -15,7 +15,7 @@ const app = express();
 
 // Enable CORS for your frontend
 app.use(cors({
-  origin: 'http://localhost:5173', // Allow requests from your frontend
+  origin: 'https://fareesam.github.io/Dine_On_Time/', // Allow requests from your frontend
   methods: 'GET,POST,PUT,DELETE', // Specify allowed methods
 }));
 
